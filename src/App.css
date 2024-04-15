@@ -6,3 +6,13 @@
 .heading {
   text-align: center;
 }
+.noText {
+  text-align: center;
+}
+.loader {
+  width: 100%;
+  text-align: center;
+}
+h4 {
+  color: white;
+}

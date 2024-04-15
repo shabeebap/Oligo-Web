@@ -4,88 +4,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const data = [
-    {
-      id: 1,
-      hostname: "host1.example.com",
-      ip: "192.168.1.1",
-      status: "Online",
-    },
-    {
-      id: 2,
-      hostname: "host2.example.com",
-      ip: "192.168.1.2",
-      status: "Offline",
-    },
-    {
-      id: 3,
-      hostname: "host3.example.com",
-      ip: "192.168.1.3",
-      status: "Online",
-    },
-    {
-      id: 4,
-      hostname: "host4.example.com",
-      ip: "192.168.1.4",
-      status: "Offline",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-    {
-      id: 5,
-      hostname: "host5.example.com",
-      ip: "192.168.1.5",
-      status: "Online",
-    },
-  ];
-
   const [hostData, setHosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let data = JSON.stringify({
@@ -109,21 +29,32 @@ function App() {
       data: data,
     };
 
-    axios
-      .request(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data), "the data....");
-        setHosts(response.data?.result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchData = () => {
+      setIsLoading(true);
+      axios
+        .request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data), "the data....");
+          setHosts(response.data?.result);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => setIsLoading(false));
+    };
+    fetchData();
   }, []);
 
   return (
     <div className="root-container">
       <div className="main-container">
-        <Table data={hostData} />
+        {isLoading ? (
+          <div className="loader">
+            <h4>Loading...</h4>
+          </div>
+        ) : (
+          <Table data={hostData} />
+        )}
       </div>
     </div>
   );

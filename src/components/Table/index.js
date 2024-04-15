@@ -17,28 +17,34 @@ const Table = ({ data }) => {
           </thead>
         </table>
       </div>
-      <div className={styles.tableContent}>
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index}>
-                <td>{row.hostid}</td>
-                <td>{row.host}</td>
-                <td>{row.proxy_hostid}</td>
-                <td
-                  className={
-                    row.status === "0"
-                      ? styles.statusOnline
-                      : styles.statusOffline
-                  }
-                >
-                  {row.status === "0" ? "Enabled" : "Disabled"}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {data.length > 0 ? (
+        <div className={styles.tableContent}>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              {data.map((row, index) => (
+                <tr key={index}>
+                  <td>{row.hostid}</td>
+                  <td>{row.host}</td>
+                  <td>{row.proxy_hostid}</td>
+                  <td
+                    className={
+                      row.status === "0"
+                        ? styles.statusOnline
+                        : styles.statusOffline
+                    }
+                  >
+                    {row.status === "0" ? "Enabled" : "Disabled"}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className={styles.noText}>
+          <h4>No Data Available...</h4>
+        </div>
+      )}
     </div>
   );
 };
