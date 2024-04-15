@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Oligo-Web/static/css/main.762e83ff.css",
-    "main.js": "/Oligo-Web/static/js/main.9a5c3ca1.js",
+    "main.css": "/Oligo-Web/static/css/main.0265ee95.css",
+    "main.js": "/Oligo-Web/static/js/main.2d318104.js",
     "static/js/453.b9b4a01c.chunk.js": "/Oligo-Web/static/js/453.b9b4a01c.chunk.js",
     "index.html": "/Oligo-Web/index.html",
-    "main.762e83ff.css.map": "/Oligo-Web/static/css/main.762e83ff.css.map",
-    "main.9a5c3ca1.js.map": "/Oligo-Web/static/js/main.9a5c3ca1.js.map",
+    "main.0265ee95.css.map": "/Oligo-Web/static/css/main.0265ee95.css.map",
+    "main.2d318104.js.map": "/Oligo-Web/static/js/main.2d318104.js.map",
     "453.b9b4a01c.chunk.js.map": "/Oligo-Web/static/js/453.b9b4a01c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.762e83ff.css",
-    "static/js/main.9a5c3ca1.js"
+    "static/css/main.0265ee95.css",
+    "static/js/main.2d318104.js"
   ]
 }
