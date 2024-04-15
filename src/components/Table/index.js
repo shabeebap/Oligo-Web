@@ -17,9 +17,10 @@ const Table = ({ data }) => {
           </thead>
         </table>
       </div>
-      {data.length > 0 ? (
-        <div className={styles.tableContent}>
-          <table cellpadding="0" cellspacing="0" border="0">
+
+      <div className={styles.tableContent}>
+        <table cellpadding="0" cellspacing="0" border="0">
+          {data.length > 0 ? (
             <tbody>
               {data.map((row, index) => (
                 <tr key={index}>
@@ -38,13 +39,13 @@ const Table = ({ data }) => {
                 </tr>
               ))}
             </tbody>
-          </table>
-        </div>
-      ) : (
-        <div className={styles.noText}>
-          <h4>No Data Available...</h4>
-        </div>
-      )}
+          ) : (
+            <div className={styles.noText}>
+              <h4>No Data Available...</h4>
+            </div>
+          )}
+        </table>
+      </div>
     </div>
   );
 };
