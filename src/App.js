@@ -88,41 +88,43 @@ function App() {
   const [hostData, setHosts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          " https://oligolabs.ae/zabbix/api_jsonrpc.php",
-          {
-            jsonrpc: "2.0",
-            method: "user.get",
-            params: {
-              filter: {
-                host: ["Zabbix server", "Linux server"],
-              },
-            },
-            id: 1,
-            auth: "21dde15c2566092e3effac499981aa4c78dff4690ba2e34256fa2b7a9f858f03",
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    let data = JSON.stringify({
+      jsonrpc: "2.0",
+      method: "host.get",
+      params: {
+        filter: {},
+      },
+      id: 1,
+    });
 
-        setHosts(response.data.result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://oligolabs.ae/zabbix/api_jsonrpc.php",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer 21dde15c2566092e3effac499981aa4c78dff4690ba2e34256fa2b7a9f858f03",
+      },
+      data: data,
     };
 
-    fetchData();
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data), "the data....");
+        setHosts(response.data?.result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
-  console.log(hostData, "the data....");
 
   return (
     <div className="root-container">
-      <div className="main-container">{/* <Table data={hostData} /> */}</div>
+      <div className="main-container">
+        <Table data={hostData} />
+      </div>
     </div>
   );
 }

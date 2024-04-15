@@ -3,35 +3,6 @@ import styles from "./Table.module.css";
 
 const Table = ({ data }) => {
   return (
-    // <div className={styles.tableContainer}>
-    //   <table className={styles.table}>
-    //     <thead>
-    //       <tr>
-    //         <th>Hostname</th>
-    //         <th>IP</th>
-    //         <th>Status</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       {data.map((row, index) => (
-    //         <tr key={index}>
-    //           <td>{row.hostname}</td>
-    //           <td>{row.ip}</td>
-    //           <td
-    //             className={
-    //               row.status === "Online"
-    //                 ? styles.statusOnline
-    //                 : styles.statusOffline
-    //             }
-    //           >
-    //             {row.status}
-    //           </td>
-    //         </tr>
-    //       ))}
-    //     </tbody>
-    //   </table>
-    // </div>
-
     <div className={styles.tableContainer}>
       <h1>HOST Information</h1>
       <div className={styles.tableHeader}>
@@ -51,17 +22,17 @@ const Table = ({ data }) => {
           <tbody>
             {data.map((row, index) => (
               <tr key={index}>
-                <td>{row.id}</td>
-                <td>{row.hostname}</td>
-                <td>{row.ip}</td>
+                <td>{row.hostid}</td>
+                <td>{row.host}</td>
+                <td>{row.proxy_hostid}</td>
                 <td
                   className={
-                    row.status === "Online"
+                    row.status === "0"
                       ? styles.statusOnline
                       : styles.statusOffline
                   }
                 >
-                  {row.status}
+                  {row.status === "0" ? "Enabled" : "Disabled"}
                 </td>
               </tr>
             ))}
