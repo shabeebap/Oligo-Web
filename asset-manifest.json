@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Oligo-Web/static/css/main.a9762945.css",
+    "main.js": "/Oligo-Web/static/js/main.bd54d194.js",
+    "static/js/453.b9b4a01c.chunk.js": "/Oligo-Web/static/js/453.b9b4a01c.chunk.js",
+    "index.html": "/Oligo-Web/index.html",
+    "main.a9762945.css.map": "/Oligo-Web/static/css/main.a9762945.css.map",
+    "main.bd54d194.js.map": "/Oligo-Web/static/js/main.bd54d194.js.map",
+    "453.b9b4a01c.chunk.js.map": "/Oligo-Web/static/js/453.b9b4a01c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9762945.css",
+    "static/js/main.bd54d194.js"
+  ]
+}
