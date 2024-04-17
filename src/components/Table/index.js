@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Table.module.css";
-import axios from "axios";
 
 const Table = ({ data }) => {
   return (
