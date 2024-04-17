@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Table.module.css";
+import axios from "axios";
 
 const Table = ({ data }) => {
   return (
@@ -26,7 +27,7 @@ const Table = ({ data }) => {
                 <tr key={index}>
                   <td>{row.hostid}</td>
                   <td>{row.host}</td>
-                  <td>{row.proxy_hostid}</td>
+                  <td>{row.ip}</td>
                   <td
                     className={
                       row.status === "0"
